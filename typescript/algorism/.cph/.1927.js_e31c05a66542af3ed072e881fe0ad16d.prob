@@ -1,0 +1,1 @@
+{"name":"Local: 1927","url":"/Users/loopy/develop/study/typescript/algorism/1927.js","tests":[{"id":1714119809747,"input":"9\n0\n12345678\n1\n2\n0\n0\n0\n0\n32","output":"0\n1\n2\n12345678\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/loopy/develop/study/typescript/algorism/1927.js","group":"local","local":true}

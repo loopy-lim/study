@@ -1,0 +1,9 @@
+workspace = { members = ["src/ch3/mytest", "src/ch3/mytest_struct", "src/ch4/rand", "src/ch5/image_checkerboard", "src/ch5/image_thumb", "src/ch5/mml", "src/ch5/sincewave"] }
+[package]
+name = "만들면서_배우는_러스트_프로그래밍"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
