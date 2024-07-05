@@ -1,16 +1,20 @@
 T = int(input())
 
 
-prime_numbers = []
+def prime_list(n):
+    sieve = [True] * n
 
-for i in range(2, 1000):
-    is_prime = True
-    for j in range(2, i):
-        if (i % j) == 0:
-            is_prime = False
-            break
-    if is_prime:
-        prime_numbers.append(i)
+    m = int(n**0.5)
+
+    for i in range(2, m + 1):
+        if sieve[i]:
+            for j in range(i * 2, n, i):
+                sieve[j] = False
+
+    return [i for i in range(2, n) if sieve[i]]
+
+
+prime_numbers = prime_list(10000)
 
 
 def get_approach_prime_index(arr, num):
