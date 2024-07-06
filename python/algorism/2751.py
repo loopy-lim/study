@@ -3,19 +3,16 @@ N = int(input())
 arr = [int(input()) for _ in range(N)]
 
 
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[len(arr) // 2]
-    left, equal, right = [], [], []
+def counting_sort(arr):
+    max_num = max(arr)
+    min_num = min(arr)
+    counting_arr = [0] * (max_num - min_num + 1)
     for i in arr:
-        if i < pivot:
-            left.append(i)
-        elif i > pivot:
-            right.append(i)
-        else:
-            equal.append(i)
-    return quick_sort(left) + equal + quick_sort(right)
+        counting_arr[i - min_num] += 1
+    result = []
+    for i in range(len(counting_arr)):
+        result += [i + min_num] * counting_arr[i]
+    return result
 
 
-print("\n".join(map(str, arr)))
+print("\n".join(map(str, counting_sort(arr))))
