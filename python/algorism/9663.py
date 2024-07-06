@@ -1,8 +1,31 @@
-"""
-n Queen문제라면 어떻게 해결해야 할까?
-1. 퀸은 한 행에 하나씩만 놓일 수 있다.
-2. 퀸은 한 열에 하나씩만 놓일 수 있다.
-3. 퀸은 대각선 방향으로도 이동할 수 있다.
+import sys
 
-근데 여기서 quntonize를 한다면??
-"""
+input = sys.stdin.readline
+
+N = int(input())
+
+row = [0 for _ in range(N)]
+result = 0
+
+
+def check(x, y):
+    for i in range(x):
+        if row[i] == y or abs(row[i] - y) == x - i:
+            return False
+    return True
+
+
+def back_traking(x):
+    global result
+    if x == N:
+        result += 1
+        return
+    for i in range(N):
+        if check(x, i):
+            row[x] = i
+            back_traking(x + 1)
+            row[x] = 0
+
+
+back_traking(0)
+print(result)
