@@ -3,7 +3,7 @@ use chrono::Utc;
 use sqlx::PgPool;
 use uuid::Uuid;
 
-use crate::domain::{NewSubscriber, SubscribeName};
+use crate::domain::{NewSubscriber, SubscriberName};
 #[derive(serde::Deserialize)]
 pub struct FormData {
     email: String,
@@ -19,7 +19,7 @@ pub struct FormData {
     )
 )]
 pub async fn subscribe(form: web::Form<FormData>, pool: web::Data<PgPool>) -> HttpResponse {
-    let name = match SubscribeName::parse(form.0.name) {
+    let name = match SubscriberName::parse(form.0.name) {
         Ok(name) => name,
         Err(_) => return HttpResponse::BadRequest().finish(),
     };
